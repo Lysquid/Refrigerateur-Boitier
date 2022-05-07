@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#include <packet.h>
+#include <declarations.h>
 #include <SPI.h>
 #include <RF24.h>
 

@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#include <packet.h>
+#include <declarations.h>
 #include <Wire.h>
 #include <MutichannelGasSensor.h>
 
@@ -7,9 +10,6 @@ void gazSetup()
 
     gas.begin(0x04); // the default I2C address of the slave is 0x04
     gas.powerOn();
-
-    Serial.print("Firmware Version = ");
-    Serial.println(gas.getVersion());
 
     Serial.println("Gaz fin");
 }

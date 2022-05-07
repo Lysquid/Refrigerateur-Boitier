@@ -1,3 +1,7 @@
+#include <Arduino.h>
+#include <packet.h>
+#include <declarations.h>
+
 #define BUFF_MAXLEN 64
 char barcodeBuffer[BUFF_MAXLEN];
 

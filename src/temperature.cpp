@@ -1,3 +1,7 @@
+#include <Arduino.h>
+#include <packet.h>
+#include <declarations.h>
+
 int anaPinTemperature = A0;
 float temperature2;
 

@@ -1,12 +1,6 @@
 #include <Arduino.h>
 #include <packet.h>
-
-#include <Humidite.h>
-#include <Gaz.h>
-#include <Luminosite.h>
-#include <Temperature.h>
-#include <Codebarre.h>
-#include <Emetteur.h>
+#include <declarations.h>
 
 const bool humidite = 1;
 const bool gaz = 1;
@@ -24,6 +18,7 @@ void setup()
     {
         delay(10);
     }
+    Serial.println("\n");
     Serial.println("Set up debut");
 
     if (humidite)

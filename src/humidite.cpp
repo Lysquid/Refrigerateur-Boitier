@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#include <packet.h>
+#include <declarations.h>
 #include <Adafruit_Si7021.h>
 
 bool enableHeater = false;
