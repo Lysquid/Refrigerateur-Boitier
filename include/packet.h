@@ -9,7 +9,8 @@ typedef struct payload_t
   unsigned short humidite;
   short temperature2;
   unsigned short gaz[8];
-  char codeBarre;
+  unsigned long codeBarre1;
+  unsigned long codeBarre2;
 } payload_t;
 
 #endif

@@ -20,7 +20,7 @@ payload_t luminositeLoop(payload_t packet)
     // the lower the voltage, the brighter it is
     if ((voltage >= 0) && (voltage <= 0.4))
     {
-        Serial.print("lumineux - ");
+        Serial.print("lumineux : ");
     }
     else if ((voltage > 0.4) && (voltage <= 2))
     {
