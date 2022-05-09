@@ -20,6 +20,10 @@ payload_t codebarreLoop(payload_t packet)
     Serial.readBytes(barcodeBuffer, BUFF_MAXLEN);
     Serial.print("Code barre   : ");
     Serial.println(barcodeBuffer);
+    
+    Serial.print("Conversion   : ");
+    Serial.println(atoi(barcodeBuffer));
+
     packet.codeBarre = barcodeBuffer[0];
   }
   return packet;

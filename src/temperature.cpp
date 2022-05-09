@@ -18,15 +18,15 @@ payload_t temperatureLoop(payload_t packet)
   // temperature = (tension-1.25)/0.25;
   // à la sortie de notre interface, on a Vout(T) = 0.25*T+1.25 d'après la simulation theorique
   // experimentalement, on calibre notre capteur en ajoutant un gain de 0.95 et un offset de -0.55
-  temperature2 = 3.36 * tension - 4.75;
+  temperature2 = 8.0 * tension - 10.0;
 
   if (tension == 5)
   {
-    Serial.print("> 12.05");
+    Serial.print("> 30");
   }
   else if (tension == 0)
   {
-    Serial.print("< -4.75");
+    Serial.print("< -10");
   }
   else
   {
