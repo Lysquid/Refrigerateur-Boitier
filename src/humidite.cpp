@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <packet.h>
+#include <paquetInfos.h>
 #include <declarations.h>
 #include <Adafruit_Si7021.h>
 
@@ -31,7 +31,7 @@ void humiditeSetup()
   Serial.println("Humidite fin");
 }
 
-payload_t humiditeLoop(payload_t packet)
+paquetInfos_t humiditeLoop(paquetInfos_t paquetInfos)
 {
   Serial.print("Humidite     : ");
   float humidite = sensorHumidite.readHumidity();
@@ -42,9 +42,9 @@ payload_t humiditeLoop(payload_t packet)
   Serial.println("°C)");
   heater();
 
-  packet.humidite = humidite * 100;
-  packet.temperature2 = temperature2 * 100;
-  return packet;
+  paquetInfos.humidite = humidite * 100;
+  paquetInfos.temperature2 = temperature2 * 100;
+  return paquetInfos;
 }
 
 void heater()

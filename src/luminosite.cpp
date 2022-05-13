@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <packet.h>
+#include <paquetPorte.h>
 #include <declarations.h>
 
 int pinLuminosite = A1;
@@ -8,7 +8,7 @@ void luminositeSetup()
 {
 }
 
-payload_t luminositeLoop(payload_t packet)
+paquetPorte_t luminositeLoop(paquetPorte_t paquetPorte)
 {
     Serial.print("Luminosite   : ");
 
@@ -39,6 +39,6 @@ payload_t luminositeLoop(payload_t packet)
     // when sensor pin D0 is connected, the sensor only knows the state light (0.14V) and dark (5.0V).
     // The brightness at which the particular state is to be set can be set using the rotary potentiometer.
 
-    packet.luminosite = voltage < 2;
-    return packet;
+    paquetPorte.porteOuverte = voltage < 3;
+    return paquetPorte;
 }

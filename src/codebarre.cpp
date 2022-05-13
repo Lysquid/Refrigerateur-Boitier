@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <packet.h>
+#include <paquetCodebarre.h>
 #include <declarations.h>
 #include <stdio.h>
 
@@ -36,7 +36,7 @@ void codebarreSetup()
   clearBarcodeBuffer();
 }
 
-payload_t codebarreLoop(payload_t packet)
+paquetCodebarre_t codebarreLoop(paquetCodebarre_t paquetCodebarre)
 {
   while (Serial.available() > 0)
   {
@@ -59,10 +59,10 @@ payload_t codebarreLoop(payload_t packet)
     Serial.print(code1);
     Serial.println(code2);
 
-    packet.codeBarre1 = code1;
-    packet.codeBarre2 = code2;
+    paquetCodebarre.codeBarre1 = code1;
+    paquetCodebarre.codeBarre2 = code2;
   }
-  return packet;
+  return paquetCodebarre;
 }
 
 void clearBarcodeBuffer()

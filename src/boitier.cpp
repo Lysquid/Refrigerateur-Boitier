@@ -1,5 +1,7 @@
 #include <Arduino.h>
-#include <packet.h>
+#include <paquetCodebarre.h>
+#include <paquetInfos.h>
+#include <paquetPorte.h>
 #include <declarations.h>
 
 const bool humidite = 1;
@@ -9,7 +11,9 @@ const bool codebarre = 1;
 const bool temperature = 1;
 const bool emetteur = 1;
 
-payload_t packet;
+paquetCodebarre_t paquetCodebarre;
+paquetInfos_t paquetInfos;
+paquetPorte_t paquetPorte;
 
 void setup()
 {
@@ -42,17 +46,17 @@ void loop()
     Serial.println();
 
     if (humidite)
-        packet = humiditeLoop(packet);
+        paquetInfos = humiditeLoop(paquetInfos);
     if (gaz)
-        packet = gaz_loop(packet);
+        paquetInfos = gaz_loop(paquetInfos);
     if (luminosite)
-        packet = luminositeLoop(packet);
+        paquetPorte = luminositeLoop(paquetPorte);
     if (temperature)
-        packet = temperatureLoop(packet);
+        paquetInfos = temperatureLoop(paquetInfos);
     if (codebarre)
-        packet = codebarreLoop(packet);
+        paquetCodebarre = codebarreLoop(paquetCodebarre);
     if (emetteur)
-        emetteurLoop(packet);
+        emetteurLoop(paquetInfos, paquetPorte, paquetCodebarre);
 
     delay(1000);
 }

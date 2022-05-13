@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <packet.h>
+#include <paquetInfos.h>
 #include <declarations.h>
 
 int anaPinTemperature = A0;
@@ -9,7 +9,7 @@ void temperatureSetup()
 {
 }
 
-payload_t temperatureLoop(payload_t packet)
+paquetInfos_t temperatureLoop(paquetInfos_t paquetInfos)
 {
   Serial.print("Temperature  : ");
 
@@ -35,6 +35,6 @@ payload_t temperatureLoop(payload_t packet)
   }
   Serial.println("°C");
 
-  packet.temperature = temperature2 * 100;
-  return packet;
+  paquetInfos.temperature = temperature2 * 100;
+  return paquetInfos;
 }

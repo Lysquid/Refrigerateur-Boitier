@@ -1,5 +1,7 @@
 #include <Arduino.h>
-#include <packet.h>
+#include <paquetInfos.h>
+#include <paquetCodebarre.h>
+#include <paquetInfos.h>
 #include <declarations.h>
 #include <SPI.h>
 #include <RF24.h>
@@ -26,12 +28,17 @@ void emetteurSetup()
   radio.enableDynamicPayloads();
 }
 
-void emetteurLoop(payload_t packet)
+void emetteurLoop(paquetInfos_t paquetInfos, paquetPorte_t paquetPorte, paquetCodebarre_t paquetCodebarre)
 {
   Serial.print(F("\n Now sending Packet "));
 
   time1 = micros();
-  if (radio.write(&packet, sizeof(packet)))
+  bool test;
+  test = radio.write(&paquetInfos, sizeof(paquetInfos));
+  radio.write(&paquetPorte, sizeof(paquetPorte));
+  radio.write(&paquetCodebarre, sizeof(paquetCodebarre));
+
+  if (test)
   {
     Serial.print(F(" ... Ok ... "));
   }
