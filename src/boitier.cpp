@@ -1,19 +1,16 @@
 #include <Arduino.h>
-#include <paquetCodebarre.h>
-#include <paquetInfos.h>
-#include <paquetPorte.h>
+#include <paquets.h>
 #include <declarations.h>
 
+const bool temperature = 1;
 const bool humidite = 1;
 const bool gaz = 1;
 const bool luminosite = 1;
 const bool codebarre = 1;
-const bool temperature = 1;
 const bool emetteur = 1;
 
-paquetCodebarre_t paquetCodebarre;
-paquetInfos_t paquetInfos;
-paquetPorte_t paquetPorte;
+const int delai = 5000;
+const int nombreBoucles = 5;
 
 void setup()
 {
@@ -25,14 +22,14 @@ void setup()
     Serial.println("\n");
     Serial.println("Set up debut");
 
+    if (temperature)
+        temperatureSetup();
     if (humidite)
         humiditeSetup();
     if (gaz)
         gazSetup();
     if (luminosite)
         luminositeSetup();
-    if (temperature)
-        temperatureSetup();
     if (codebarre)
         codebarreSetup();
     if (emetteur)
@@ -43,20 +40,26 @@ void setup()
 
 void loop()
 {
+
+    paquetInfos_t paquetInfos;
+
     Serial.println();
 
+    if (temperature)
+        paquetInfos = temperatureLoop(paquetInfos);
     if (humidite)
         paquetInfos = humiditeLoop(paquetInfos);
     if (gaz)
         paquetInfos = gaz_loop(paquetInfos);
-    if (luminosite)
-        paquetPorte = luminositeLoop(paquetPorte);
-    if (temperature)
-        paquetInfos = temperatureLoop(paquetInfos);
-    if (codebarre)
-        paquetCodebarre = codebarreLoop(paquetCodebarre);
     if (emetteur)
-        emetteurLoop(paquetInfos, paquetPorte, paquetCodebarre);
+        emetteurLoop(paquetInfos);
 
-    delay(1000);
+    for (int i = 0; i < nombreBoucles; i++)
+    {
+        if (luminosite)
+            luminositeLoop(emetteur);
+        if (codebarre)
+            codebarreLoop(emetteur);
+        delay(delai / nombreBoucles);
+    }
 }

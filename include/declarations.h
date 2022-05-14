@@ -1,6 +1,4 @@
-#include <paquetCodebarre.h>
-#include <paquetInfos.h>
-#include <paquetPorte.h>
+#include <paquets.h>
 
 void humiditeSetup();
 void gazSetup();
@@ -11,7 +9,9 @@ void emetteurSetup();
 
 paquetInfos_t humiditeLoop(paquetInfos_t);
 paquetInfos_t gaz_loop(paquetInfos_t);
-paquetPorte_t luminositeLoop(paquetPorte_t);
 paquetInfos_t temperatureLoop(paquetInfos_t);
-paquetCodebarre_t codebarreLoop(paquetCodebarre_t);
-void emetteurLoop(paquetInfos_t, paquetPorte_t, paquetCodebarre_t);
+void codebarreLoop(bool);
+void luminositeLoop(bool);
+void emetteurLoop(paquetInfos_t);
+void emetteurPorte(paquetPorte_t);
+void emetteurCodebarre(paquetCodebarre_t);

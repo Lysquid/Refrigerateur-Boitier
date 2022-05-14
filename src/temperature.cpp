@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <paquetInfos.h>
+#include <paquets.h>
 #include <declarations.h>
 
 int anaPinTemperature = A0;

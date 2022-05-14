@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <paquetInfos.h>
+#include <paquets.h>
 #include <declarations.h>
 #include <Wire.h>
 #include <MutichannelGasSensor.h>
