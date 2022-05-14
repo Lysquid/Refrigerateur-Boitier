@@ -20,11 +20,11 @@ void luminositeLoop(boolean emission)
 
     if (porteOuverte != precPorteOuverte)
     {
-        Serial.print("Luminosite   : ");
+        Serial.print("Luminosite   : Porte ");
         if (porteOuverte)
-            Serial.print("Porte ouverte.");
+            Serial.print("ouverte.");
         else
-            Serial.print("Porte fermée.");
+            Serial.print("fermée.");
 
         Serial.print(" tension : ");
         Serial.print(tension);
