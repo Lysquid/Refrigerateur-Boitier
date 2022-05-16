@@ -44,9 +44,11 @@ void emetteurLoop(paquetInfos_t paquetInfos)
 void emetteurPorte(paquetPorte_t paquetPorte)
 {
   radio.write(&paquetPorte, sizeof(paquetPorte));
+  Serial.println("Emission d'un paquet porte");
 }
 
 void emetteurCodebarre(paquetCodebarre_t paquetCodebarre)
 {
   radio.write(&paquetCodebarre, sizeof(paquetCodebarre));
+  Serial.println("Emission d'un paquet codebarre");
 }
