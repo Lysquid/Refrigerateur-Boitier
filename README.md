@@ -2,7 +2,7 @@
 
 ## Projet
 
-Boitier pour connecter son réfrigérateur, permettant de suivre l'évolution de plusieurs grandeures pour s'assurer de la bonne conservation des aliments, ainsi que de gérer les flux avec un lecteur de code barre. Projet réalisé dans le cadre du P2I 2 à l'INSA Lyon.
+Boitier pour connecter son réfrigérateur, permettant de suivre l'évolution de plusieurs grandeurs pour s'assurer de la bonne conservation des aliments, ainsi que de gérer les flux avec un lecteur de code barre. Projet réalisé dans le cadre du P2I 2 à l'INSA Lyon.
 
 ## Capteurs
 
