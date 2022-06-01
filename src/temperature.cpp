@@ -19,7 +19,7 @@ paquetInfos_t temperatureLoop(paquetInfos_t paquetInfos)
   // à la sortie de notre interface, on a Vout(T) = 0.25*T+1.25 d'après la simulation theorique
   // experimentalement, on calibre notre capteur en ajoutant un gain de 0.95 et un offset de -0.55
   // après recalibrage pour la nouvelle architecture, nous obtenons les valeurs suivantes :
-  temperature2 = 13.7 * (tension - 2.49);
+  temperature2 = 16.35 * (tension - 3.17);
 
   if (tension == 5)
   {
@@ -33,7 +33,9 @@ paquetInfos_t temperatureLoop(paquetInfos_t paquetInfos)
   {
     Serial.print(temperature2);
   }
-  Serial.println("°C");
+  Serial.print("°C (");
+  Serial.print(tension);
+  Serial.println("V)");
 
   paquetInfos.temperature = temperature2 * 100;
   return paquetInfos;
