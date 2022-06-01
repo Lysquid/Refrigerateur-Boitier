@@ -40,7 +40,6 @@ paquetInfos_t humiditeLoop(paquetInfos_t paquetInfos)
   float temperature2 = sensorHumidite.readTemperature();
   Serial.print(temperature2, 2);
   Serial.println("°C)");
-  heater();
 
   paquetInfos.humidite = humidite * 100;
   paquetInfos.temperature2 = temperature2 * 100;

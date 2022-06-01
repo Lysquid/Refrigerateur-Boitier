@@ -9,7 +9,7 @@ const bool luminosite = 1;
 const bool codebarre = 1;
 const bool emetteur = 1;
 
-const int delai = 5000;
+const int delai = 1000;
 const int nombreBoucles = 5;
 
 void setup()
